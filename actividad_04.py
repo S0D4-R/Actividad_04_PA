@@ -12,16 +12,24 @@ while key:
                       "\n1. Agregar estudiante"
                       "\n2.Mostrar lista de estudiantes"
                       "\n3. Calcular promedio general"
-                      "\n4. Salir")
+                      "\n4. Salir\n\nSeleccione una opción: ")
     match menu_inpt:
         case "1":
-            temp_student_name = input("Coloque el nombre del estudiante: ")
-            temp_student_avg_score = input("Coloque su promedio: ")
-            students_compendium.update({temp_student_name:temp_student_avg_score})
+            try:
+                temp_student_name = input("Coloque el nombre del estudiante: ")
+                temp_student_avg_score = int(input("Coloque su promedio: "))
+                students_compendium.update({temp_student_name:temp_student_avg_score})
+            except ValueError:
+                print("Eso no es un número.")
         case "2":
             print(students_compendium)
         case "3":
-            pass
+            cumulator = 0
+            temp_score = 0
+            for name, score in students_compendium:
+                cumulator += 1
+                temp_score += score
+            print("")
         case "4":
             print("Gracias por usar el programa")
             key = False

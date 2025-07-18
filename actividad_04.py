@@ -29,7 +29,7 @@ while key:
             for name, score in students_compendium:
                 cumulator += 1
                 temp_score += score
-            print("")
+            print("El promedio general es: {}".format(temp_score/cumulator))
         case "4":
             print("Gracias por usar el programa")
             key = False
